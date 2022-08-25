@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_search_contract_line">  <!-- vistas busqueda -->
+        <field name="name">view.search.contract.line</field>
+        <field name="model">contract.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="contract_id"/> 
+                <field name="partner_id"/> 
+                <field name="product_id"/> 
+                <field name="price_unit"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_tree_contract_line">  <!-- vistas Tree-->
+        <field name="name">view.tree.contract.line</field>
+        <field name="model">contract.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/> 
+                <field name="contract_id"/> 
+                <field name="partner_id"/> 
+                <field name="product_id"/> 
+                <field name="state"/> 
+                <field name="quantity"/>
+                <field name="price_unit"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_view_contract_lines" model="ir.actions.act_window">
+        <field name="name">Lineas de contrato</field>
+	<field name="res_model">contract.line</field>
+	<field name="view_id" ref="view_tree_contract_line"></field>
+    </record>
+
+	<menuitem id="menu_contract_line" 
+            name="Lineas de contrato" 
+		parent="account.menu_finance_receivables"
+		sequence="115"
+            	action="action_view_contract_lines"/>
+
+</odoo>

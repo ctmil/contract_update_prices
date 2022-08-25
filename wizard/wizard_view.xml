@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="update_contracts_wizard_view" model="ir.ui.view">
+            <field name="name">Actualizar Contratos Wizard</field>
+            <field name="model">update.contracts.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Ingresar productos">
+                    <sheet>
+                                <group>
+                                        <field name="new_price" />
+                                </group>
+                    </sheet>
+                    <footer>
+                        <button string="Confirm" name="btn_confirm" type="object" default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+    </record>
+
+    <record id="update_contracts_wizard_action" model="ir.actions.act_window">
+	    <field name="name">Actualizar contratos</field>
+	    <field name="res_model" >update.contracts.wizard</field>
+	    <field name="view_mode">form</field>
+	    <field name="binding_model_id" ref="contract.model_contract_line"></field>
+	    <field name="target">new</field>
+        	<field name="binding_view_types">list</field>
+    </record>
+
+    <!-- record id="stock_add_to_wave_action_stock_picking" model="ir.actions.act_window">
+        <field name="name">Add to wave</field>
+        <field name="res_model">stock.add.to.wave</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="groups_id" eval="[(4, ref('stock.group_stock_picking_wave'))]"/>
+        <field name="binding_model_id" ref="stock.model_stock_picking"/>
+        <field name="binding_view_types">list</field>
+    </record -->
+
+</odoo>
